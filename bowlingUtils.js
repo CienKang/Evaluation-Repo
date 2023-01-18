@@ -50,7 +50,19 @@ const getScore = (Rolls) => {
         throw new Error('Total Frames are less than 10.');
 
     return scoreCal(Frames);
-    // console.log(Frames);
 };
 
-module.exports = { getScore };
+
+const getBestScore = (rollsArray) => {
+
+    let bestScore =  0;
+
+    for(let idx = 0;idx<rollsArray.length;idx++)
+    {
+        let nowVal = getScore(rollsArray[idx]);
+        bestScore = bestScore < getScore(rollsArray[idx] ? nowVal : bestScore);
+    }
+
+    return bestScore; 
+};
+module.exports = { getScore ,getBestScore};
