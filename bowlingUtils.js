@@ -13,7 +13,7 @@ const scoreCal = (Frames) => {
             const arr = Frames[idx];
 
             if(arr[0] + arr[1] === 10)
-                score+= 10 + Frames[idx][0];
+                score+= 10 + Frames[idx+1][0];
             else score += arr[0] + arr[1];
         }
         
